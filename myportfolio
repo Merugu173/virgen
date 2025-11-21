@@ -1,0 +1,159 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Vivek Merugu — Entrepreneur</title>
+  <meta name="description" content="Vivek Merugu — entrepreneur focused on startups, AR/AI, waste-to-energy and manufacturing. Founder of Holistic Edge, Tarunati Industries, Veriblok, Virgen, ViredLabs and more." />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{--bg:#0f1724;--card:#0b1220;--muted:#9aa4b2;--accent:#7dd3fc;--glass: rgba(255,255,255,0.03)}
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial;color:#e6eef6;background:linear-gradient(180deg,#071028 0%, #071826 100%);-webkit-font-smoothing:antialiased}
+    .wrapper{max-width:980px;margin:48px auto;padding:36px;background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);border-radius:16px;box-shadow:0 8px 30px rgba(2,6,23,0.6);border:1px solid rgba(255,255,255,0.03)}
+    header{display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .brand{display:flex;align-items:center;gap:14px}
+    .logo{width:56px;height:56px;border-radius:12px;background:linear-gradient(135deg,var(--accent),#60a5fa);display:flex;align-items:center;justify-content:center;font-weight:700;color:#042135}
+    h1{font-size:28px;margin:0}
+    p.lead{margin:6px 0 0;color:var(--muted);font-size:14px}.grid{display:grid;grid-template-columns:1fr 320px;gap:28px;margin-top:28px}
+.card{background:var(--card);padding:22px;border-radius:12px;border:1px solid rgba(255,255,255,0.02)}
+
+.about h2{margin:0 0 8px;font-size:20px}
+.about p{color:var(--muted);line-height:1.6}
+
+.ventures{display:flex;flex-direction:column;gap:12px;margin-top:12px}
+.venture{padding:12px;border-radius:10px;background:linear-gradient(180deg, rgba(255,255,255,0.012), transparent);border:1px solid rgba(255,255,255,0.02)}
+.venture b{display:block}
+.timeline{margin-top:14px;border-left:2px solid rgba(255,255,255,0.03);padding-left:14px;color:var(--muted)}
+
+.skills{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.chip{padding:8px 10px;border-radius:999px;background:var(--glass);font-size:13px;color:var(--muted);border:1px solid rgba(255,255,255,0.02)}
+
+.right .contact h3{margin:0 0 8px}
+.contact-list{display:flex;flex-direction:column;gap:8px}
+.btn{display:inline-block;padding:10px 14px;border-radius:10px;background:linear-gradient(90deg,#7dd3fc33,#60a5fa22);border:1px solid rgba(125,211,252,0.12);color:var(--accent);text-decoration:none;font-weight:600}
+
+footer{margin-top:28px;text-align:center;color:var(--muted);font-size:13px}
+.muted{color:var(--muted)}
+
+/* responsive */
+@media (max-width:880px){
+  .grid{grid-template-columns:1fr;}
+  .right{order:-1}
+}
+
+/* subtle animations */
+.fade-up{opacity:0;transform:translateY(8px);animation:fadeUp .7s forwards}
+@keyframes fadeUp{to{opacity:1;transform:none}}
+
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <header>
+      <div class="brand">
+        <div class="logo">VM</div>
+        <div>
+          <h1>Vivek Merugu</h1>
+          <p class="lead">Entrepreneur • Builder • Waste-to-energy & manufacturing enthusiast</p>
+        </div>
+      </div>
+      <nav class="muted" aria-label="quick links">
+        <a href="#about" class="muted" style="margin-right:14px;text-decoration:none">About</a>
+        <a href="#ventures" class="muted" style="margin-right:14px;text-decoration:none">Ventures</a>
+        <a href="#contact" class="muted" style="text-decoration:none">Contact</a>
+      </nav>
+    </header><main class="grid">
+  <section class="about card fade-up" id="about" style="animation-delay:.05s">
+    <h2>Hi — I'm Vivek</h2>
+    <p>
+      I'm an entrepreneur with 5 years of hands-on experience building startups and scaling small teams. After completing my BTech in Metallurgical & Material Science from NIT Warangal, I dived into entrepreneurship — a path I dreamed of since graduation.
+    </p>
+
+    <div class="ventures" id="ventures">
+      <div class="venture">
+        <b>Early ventures & learnings</b>
+        <p class="muted">My first B2C platform, <i>Orgen</i>, didn't succeed — but it taught me the resilience and technical curiosity that shaped my next moves.</p>
+      </div>
+
+      <div class="venture">
+        <b>Shift to deep tech — Virgen & ViredLabs</b>
+        <p class="muted">In 2021 I co-founded <i>Virgen Verse Pvt Ltd</i> to build AR/VR and AI products. Later we launched <i>ViredLabs Pvt Ltd</i>, an edtech-focused product that used AR/AI to create interactive learning experiences. I managed teams of ~20 across projects and product development.</p>
+      </div>
+
+      <div class="venture">
+        <b>Healthcare & services</b>
+        <p class="muted">I also started a physiotherapy clinic and contributed to medical-tech content and services before pivoting away from these roles a year ago to pursue manufacturing and sustainable solutions.</p>
+      </div>
+
+      <div class="venture">
+        <b>Digital marketing & launchpad — Holistic Edge</b>
+        <p class="muted">Seeing opportunity in Tier-2 cities, I co-founded a digital marketing studio to help local brands grow. Along with a friend, I created a startup launchpad offering end-to-end support from ideation to marketing.</p>
+      </div>
+
+      <div class="venture">
+        <b>Current focus — Tarunati Industries Pvt Ltd</b>
+        <p class="muted">With my background in materials and a year's research into waste management, I founded <i>Tarunati Industries</i> to convert agro-residue into pellets and briquettes for power plants — bridging waste-to-energy with local manufacturing.</p>
+      </div>
+    </div>
+
+    <div class="timeline">
+      <div><strong>2020</strong> — Orgen (B2C experiment)</div>
+      <div><strong>2021</strong> — Virgen Verse Pvt Ltd (AR/VR & AI)</div>
+      <div><strong>2022</strong> — ViredLabs Pvt Ltd (EdTech; team of ~20)</div>
+      <div><strong>2022–2023</strong> — Physiotherapy clinic & digital marketing initiatives</div>
+      <div><strong>2024</strong> — Holistic Edge (startup launchpad & digital marketing)</div>
+      <div><strong>2025</strong> — Tarunati Industries Pvt Ltd (agro-residue pellets & briquettes)</div>
+    </div>
+
+    <div style="margin-top:14px">
+      <div class="skills">
+        <span class="chip">Product Strategy</span>
+        <span class="chip">AR/VR / Spatial Tech</span>
+        <span class="chip">AI & Data Science</span>
+        <span class="chip">Startup Growth</span>
+        <span class="chip">Digital Marketing</span>
+        <span class="chip">Waste-to-Energy</span>
+        <span class="chip">Manufacturing</span>
+      </div>
+    </div>
+  </section>
+
+  <aside class="right">
+    <div class="card contact fade-up" id="contact" style="animation-delay:.09s">
+      <h3>Get in touch</h3>
+      <p class="muted">I'm open to: partnerships, pilot projects, manufacturing collaborations, and seed-stage advisory roles.</p>
+
+      <div class="contact-list" style="margin-top:12px">
+        <a class="btn" href="mailto:hello@vivekmerugu.com">Email me</a>
+        <a class="btn" href="https://www.linkedin.com/in/vivek-merugu" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="btn" href="#" onclick="copyMail();return false;">Copy email</a>
+      </div>
+
+      <p class="muted" style="margin-top:12px;font-size:13px">Based in Khammam, Telangana • Available for remote collaborations</p>
+    </div>
+
+    <div class="card" style="margin-top:16px">
+      <h4 style="margin:0 0 8px">Quick facts</h4>
+      <p class="muted" style="margin:0">Degree: BTech — Metallurgical & Material Science, NIT Warangal</p>
+      <p class="muted" style="margin:6px 0 0">Experience: 5 years • Built multiple startups • Team leadership & operations</p>
+    </div>
+  </aside>
+</main>
+
+<footer>
+  <div class="muted">© <span id="year"></span> Vivek Merugu — Built for clarity and action.</div>
+</footer>
+
+  </div>  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    function copyMail(){
+      const email = 'hello@vivekmerugu.com';
+      navigator.clipboard?.writeText(email).then(()=>{
+        alert('Email copied to clipboard: ' + email);
+      },()=>{alert('Copy failed. Email: ' + email)});
+    }
+  </script></body>
+</html>
