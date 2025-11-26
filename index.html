@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vivek Merugu - Entrepreneur & Innovator</title>
+    <style>
+        :root {
+            --color-bg: #0a0a0a;
+            --color-surface: #121212;
+            --color-text: #e8e8e8;
+            --color-text-secondary: #a0a0a0;
+            --color-accent: #32b8c6;
+            --color-accent-hover: #2da6b2;
+            --font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-family);
+            background: var(--color-bg);
+            color: var(--color-text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1.5rem 5%;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        nav .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 600;
+            letter-spacing: -0.5px;
+            color: var(--color-accent);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--color-text-secondary);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+            font-weight: 400;
+        }
+
+        .nav-links a:hover {
+            color: var(--color-accent);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding: 0 5%;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            text-align: center;
+            opacity: 0;
+            animation: fadeInUp 1s ease forwards 0.3s;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 5rem);
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            letter-spacing: -2px;
+        }
+
+        .hero .gradient-text {
+            background: linear-gradient(135deg, var(--color-accent), #5de0e6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: clamp(1.1rem, 2vw, 1.4rem);
+            color: var(--color-text-secondary);
+            margin-bottom: 3rem;
+            line-height: 1.8;
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 3rem;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+        }
+
+        .scroll-indicator span {
+            display: block;
+            width: 24px;
+            height: 40px;
+            border: 2px solid var(--color-accent);
+            border-radius: 20px;
+            position: relative;
+        }
+
+        .scroll-indicator span::before {
+            content: '';
+            position: absolute;
+            top: 8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 8px;
+            background: var(--color-accent);
+            border-radius: 2px;
+            animation: scroll 2s infinite;
+        }
+
+        /* Section Styles */
+        section {
+            padding: 8rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            letter-spacing: -1px;
+            opacity: 0;
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: var(--color-text-secondary);
+            margin-bottom: 4rem;
+            opacity: 0;
+        }
+
+        /* About Section */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center;
+        }
+
+        .about-content p {
+            font-size: 1.1rem;
+            line-height: 1.9;
+            color: var(--color-text-secondary);
+            margin-bottom: 1.5rem;
+            opacity: 0;
+        }
+
+        .highlight {
+            color: var(--color-accent);
+            font-weight: 600;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+
+        .stat-card {
+            background: var(--color-surface);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: transform 0.3s ease, border-color 0.3s ease;
+            opacity: 0;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--color-accent);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--color-accent);
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: var(--color-text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* Journey Timeline */
+        .timeline {
+            position: relative;
+            padding: 2rem 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: rgba(50, 184, 198, 0.2);
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 4rem;
+            opacity: 0;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content {
+            margin-left: auto;
+        }
+
+        .timeline-content {
+            background: var(--color-surface);
+            padding: 2.5rem;
+            border-radius: 12px;
+            width: 45%;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            position: relative;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .timeline-content:hover {
+            transform: translateY(-5px);
+            border-color: var(--color-accent);
+        }
+
+        .timeline-year {
+            font-size: 0.9rem;
+            color: var(--color-accent);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .timeline-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--color-text);
+        }
+
+        .timeline-description {
+            color: var(--color-text-secondary);
+            line-height: 1.8;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            top: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 16px;
+            height: 16px;
+            background: var(--color-accent);
+            border-radius: 50%;
+            border: 4px solid var(--color-bg);
+            z-index: 2;
+        }
+
+        /* Ventures Section */
+        .ventures-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .venture-card {
+            background: var(--color-surface);
+            padding: 2.5rem;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: transform 0.3s ease, border-color 0.3s ease;
+            opacity: 0;
+        }
+
+        .venture-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--color-accent);
+        }
+
+        .venture-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(50, 184, 198, 0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+
+        .venture-name {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .venture-type {
+            color: var(--color-accent);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .venture-description {
+            color: var(--color-text-secondary);
+            line-height: 1.8;
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin-top: 1rem;
+            font-weight: 500;
+        }
+
+        .status-active {
+            background: rgba(50, 184, 198, 0.15);
+            color: var(--color-accent);
+        }
+
+        .status-past {
+            background: rgba(160, 160, 160, 0.15);
+            color: var(--color-text-secondary);
+        }
+
+        /* Contact Section */
+        .contact-content {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .contact-content p {
+            font-size: 1.2rem;
+            color: var(--color-text-secondary);
+            margin-bottom: 2.5rem;
+            line-height: 1.8;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1.2rem 3rem;
+            background: var(--color-accent);
+            color: #0a0a0a;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            background: var(--color-accent-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(50, 184, 198, 0.3);
+        }
+
+        /* Footer */
+        footer {
+            padding: 3rem 5%;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        footer p {
+            color: var(--color-text-secondary);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateX(-50%) translateY(0);
+            }
+            40% {
+                transform: translateX(-50%) translateY(-10px);
+            }
+            60% {
+                transform: translateX(-50%) translateY(-5px);
+            }
+        }
+
+        @keyframes scroll {
+            0% {
+                opacity: 0;
+                transform: translateX(-50%) translateY(0);
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+                transform: translateX(-50%) translateY(16px);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav .container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .nav-links {
+                gap: 1.5rem;
+            }
+
+            section {
+                padding: 5rem 5%;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .timeline::before {
+                left: 0;
+            }
+
+            .timeline-content {
+                width: 100%;
+                margin-left: 2rem !important;
+            }
+
+            .timeline-dot {
+                left: 0;
+                transform: translateX(-50%);
+            }
+
+            .ventures-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .visible {
+            animation: fadeInUp 0.8s ease forwards;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <div class="logo">Vivek Merugu</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#journey">Journey</a></li>
+                <li><a href="#ventures">Ventures</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Building Tomorrow's <span class="gradient-text">Solutions</span> Today</h1>
+            <p>Entrepreneur | Innovator | Metallurgist turned Serial Founder with 5 years of experience transforming ideas into impactful ventures across tech, healthcare, and sustainable industries.</p>
+        </div>
+        <div class="scroll-indicator">
+            <span></span>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="about-grid">
+            <div class="about-content">
+                <h2 class="section-title">About Me</h2>
+                <p class="section-subtitle">From Dream to Reality</p>
+                <p>Straight out of my B.Tech in <span class="highlight">Metallurgical and Material Science from NIT Warangal</span>, I dove headfirst into the entrepreneurial world I had dreamed about since graduation.</p>
+                <p>My journey began with <span class="highlight">Orgen</span>, a B2C platform that taught me invaluable lessons through failure. Rather than stepping back, I pivoted into the technical space, immersing myself in futuristic technologies like <span class="highlight">AR, VR, AI, and Data Science</span>.</p>
+                <p>Today, I'm channeling my expertise into <span class="highlight">sustainable manufacturing</span>, transforming agricultural waste into energy solutions for a greener tomorrow.</p>
+            </div>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">5+</div>
+                    <div class="stat-label">Years of Entrepreneurship</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">6</div>
+                    <div class="stat-label">Ventures Founded</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">20+</div>
+                    <div class="stat-label">Team Members Managed</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">3</div>
+                    <div class="stat-label">Active Companies</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="journey">
+        <h2 class="section-title">My Journey</h2>
+        <p class="section-subtitle">Every failure is a stepping stone to success</p>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-year">Post B.Tech</div>
+                    <div class="timeline-title">Orgen - The First Leap</div>
+                    <div class="timeline-description">
+                        Launched my first B2C platform immediately after graduation. While it didn't succeed, it fueled my determination and taught me the fundamentals of building and scaling a business.
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-year">2021</div>
+                    <div class="timeline-title">Virgen Verse Pvt Ltd</div>
+                    <div class="timeline-description">
+                        Co-founded with two friends, diving deep into futuristic technologies including AR, VR, AI, and Data Science. Successfully delivered multiple innovative projects and established ourselves in the tech space.
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-year">2021-2023</div>
+                    <div class="timeline-title">Viredlabs Pvt Ltd</div>
+                    <div class="timeline-description">
+                        Built an innovative educational platform for students featuring AR and AI capabilities. Led a team of 20 members, creating immersive learning experiences for the next generation.
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-year">2022</div>
+                    <div class="timeline-title">Healthcare &amp; Digital Ventures</div>
+                    <div class="timeline-description">
+                        Expanded into healthcare with a physiotherapy clinic and launched a digital marketing agency focused on tier-2 cities with untapped potential. Co-founded a startup launchpad to help entrepreneurs from ideation to market entry.
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-year">2024 - Present</div>
+                    <div class="timeline-title">Tarunati Industries Pvt Ltd</div>
+                    <div class="timeline-description">
+                        After a year of research in waste management and agricultural residue, founded Tarunati Industries to manufacture pellets and briquettes from agro waste, supplying sustainable energy solutions to power plants. Leveraging my metallurgical background for environmental impact.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="ventures">
+        <h2 class="section-title">Ventures Portfolio</h2>
+        <p class="section-subtitle">Building diverse solutions across industries</p>
+        <div class="ventures-grid">
+            <div class="venture-card">
+                <div class="venture-icon">🌱</div>
+                <div class="venture-name">Tarunati Industries</div>
+                <div class="venture-type">Sustainable Manufacturing</div>
+                <div class="venture-description">
+                    Converting agricultural waste into high-quality pellets and briquettes for power plants, driving the renewable energy revolution.
+                </div>
+                <span class="status-badge status-active">Active</span>
+            </div>
+
+            <div class="venture-card">
+                <div class="venture-icon">🚀</div>
+                <div class="venture-name">Startup Launchpad</div>
+                <div class="venture-type">Business Incubation</div>
+                <div class="venture-description">
+                    Holistic support for startups from ideation to marketing, helping entrepreneurs turn their visions into successful businesses.
+                </div>
+                <span class="status-badge status-active">Active</span>
+            </div>
+
+            <div class="venture-card">
+                <div class="venture-icon">📱</div>
+                <div class="venture-name">Digital Marketing Agency</div>
+                <div class="venture-type">Marketing Services</div>
+                <div class="venture-description">
+                    Specialized agency focused on unlocking digital potential for businesses in tier-2 cities with tailored marketing strategies.
+                </div>
+                <span class="status-badge status-active">Active</span>
+            </div>
+
+            <div class="venture-card">
+                <div class="venture-icon">🔬</div>
+                <div class="venture-name">Virgen Verse</div>
+                <div class="venture-type">Technology Solutions</div>
+                <div class="venture-description">
+                    Pioneering AR, VR, AI, and Data Science projects, pushing the boundaries of what's possible in immersive technology.
+                </div>
+                <span class="status-badge status-past">Past</span>
+            </div>
+
+            <div class="venture-card">
+                <div class="venture-icon">🎓</div>
+                <div class="venture-name">Viredlabs</div>
+                <div class="venture-type">EdTech Platform</div>
+                <div class="venture-description">
+                    Educational platform leveraging AR and AI to create engaging, interactive learning experiences for students.
+                </div>
+                <span class="status-badge status-past">Past</span>
+            </div>
+
+            <div class="venture-card">
+                <div class="venture-icon">⚕️</div>
+                <div class="venture-name">Physiotherapy Clinic</div>
+                <div class="venture-type">Healthcare Services</div>
+                <div class="venture-description">
+                    Comprehensive physiotherapy services helping patients recover and improve their quality of life through expert care.
+                </div>
+                <span class="status-badge status-past">Past</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="contact-content">
+            <h2 class="section-title">Let's Build Something Amazing</h2>
+            <p>Whether you're looking to collaborate, invest, or just want to chat about entrepreneurship, innovation, and sustainable solutions—I'd love to hear from you.</p>
+            <a href="mailto:vivek@example.com" class="cta-button">Get In Touch</a>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Vivek Merugu. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Smooth scroll animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all animated elements
+        document.querySelectorAll('.section-title, .section-subtitle, .about-content p, .stat-card, .timeline-item, .venture-card').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Active nav link on scroll
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.nav-links a');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.style.color = '';
+                if (link.getAttribute('href').slice(1) === current) {
+                    link.style.color = 'var(--color-accent)';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+
